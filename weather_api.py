@@ -1,8 +1,8 @@
 import requests
 
 def get_atmospheric_conditions(username, password, lat=12.9716, lon=77.5946):
-    """Fetches real-time weather telemetry from Meteomatics API."""
-    url = f"https://api.meteomatics.com/current/t_2m:C,relative_humidity_2m:p,wind_speed_10m:ms/{lat},{lon}/json"
+    """Fetches real-time weather telemetry from Meteomatics API using 'now'."""
+    url = f"https://api.meteomatics.com/now/t_2m:C,relative_humidity_2m:p,wind_speed_10m:ms/{lat},{lon}/json"
     try:
         response = requests.get(url, auth=(username, password), timeout=10)
         if response.status_code == 200:
