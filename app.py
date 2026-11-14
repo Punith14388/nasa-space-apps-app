@@ -6,7 +6,7 @@ from weather_api import get_atmospheric_conditions
 # --- Page Configuration ---
 st.set_page_config(
     page_title="Deep-Space QKD & Enigma Suite",
-    page_layout="wide",
+    layout="wide",
     initial_sidebar_state="expanded"
 )
 
