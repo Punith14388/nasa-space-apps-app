@@ -10,18 +10,42 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Custom Deep-Space CSS Styling (Universal High Visibility) ---
+# --- Custom Deep-Space CSS & Rocket Launch Video Background ---
 st.markdown("""
 <style>
-    /* Main Background & Universal Text Visibility */
+    /* Full Page Background Styling */
     .stApp {
-        background: linear-gradient(135deg, #050b14 0%, #0a192f 50%, #02060d 100%);
+        background: transparent;
         color: #ffffff !important;
+    }
+    
+    /* Background Video Container */
+    #bg-video-container {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -99;
+        overflow: hidden;
+    }
+    
+    #rocket-video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        transform: translateX(-50%) translateY(-50%);
+        object-fit: cover;
+        opacity: 0.25;
     }
     
     /* Sidebar Styling */
     [data-testid="stSidebar"] {
-        background-color: #030712;
+        background-color: rgba(3, 7, 18, 0.90);
         border-right: 1px solid #1e293b;
     }
     [data-testid="stSidebar"] * {
@@ -30,7 +54,7 @@ st.markdown("""
     
     /* Metric Cards - High Contrast Text */
     [data-testid="stMetric"] {
-        background: rgba(15, 23, 42, 0.9);
+        background: rgba(15, 23, 42, 0.85);
         border: 1px solid #38bdf8;
         padding: 15px;
         border-radius: 10px;
@@ -87,6 +111,13 @@ st.markdown("""
         font-weight: bold;
     }
 </style>
+
+<!-- Background Rocket Launch & Spaceflight Video Element -->
+<div id="bg-video-container">
+    <video autoplay muted loop id="rocket-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-space-flight-through-a-starfield-42995-large.mp4" type="video/mp4">
+    </video>
+</div>
 """, unsafe_allow_html=True)
 
 # --- Sidebar: Interplanetary Telemetry (Meteomatics Weather API) ---
