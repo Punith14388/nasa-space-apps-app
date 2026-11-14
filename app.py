@@ -10,48 +10,18 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Custom Deep-Space CSS & Cinematic Rocket Launch Video Background ---
+# --- Custom Deep-Space CSS & Cinematic Background ---
 st.markdown("""
 <style>
-    /* Main Background Styling */
+    /* Cinematic Space Background & Contrast Overlay */
     .stApp {
-        background: #050b14 !important;
+        background: linear-gradient(135deg, rgba(5, 11, 20, 0.88) 0%, rgba(10, 25, 47, 0.88) 50%, rgba(2, 6, 13, 0.92) 100%), 
+                    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
         color: #ffffff !important;
-    }
-    
-    /* Background Video Container & Dark Contrast Overlay */
-    #bg-video-container {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        min-width: 100%;
-        min-height: 100%;
-        z-index: -99;
-        overflow: hidden;
-    }
-    
-    #bg-video-container::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(5, 11, 20, 0.88) 0%, rgba(10, 25, 47, 0.88) 50%, rgba(2, 6, 13, 0.90) 100%);
-        z-index: -98;
-    }
-    
-    #rocket-video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        transform: translateX(-50%) translateY(-50%);
-        object-fit: cover;
-        opacity: 0.35;
     }
     
     /* Sidebar Styling */
@@ -122,13 +92,6 @@ st.markdown("""
         font-weight: bold;
     }
 </style>
-
-<!-- Cinematic Rocket Launch Video Background Element -->
-<div id="bg-video-container">
-    <video autoplay muted loop id="rocket-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-rocket-taking-off-in-the-sky-42994-large.mp4" type="video/mp4">
-    </video>
-</div>
 """, unsafe_allow_html=True)
 
 # --- Sidebar: Interplanetary Telemetry (Meteomatics Weather API) ---
