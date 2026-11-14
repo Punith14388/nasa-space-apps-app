@@ -10,13 +10,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Custom Deep-Space CSS Styling for High Visibility ---
+# --- Custom Deep-Space CSS Styling (Universal High Visibility) ---
 st.markdown("""
 <style>
-    /* Main Background & Theme */
+    /* Main Background & Universal Text Visibility */
     .stApp {
         background: linear-gradient(135deg, #050b14 0%, #0a192f 50%, #02060d 100%);
-        color: #f8fafc;
+        color: #ffffff !important;
     }
     
     /* Sidebar Styling */
@@ -24,10 +24,13 @@ st.markdown("""
         background-color: #030712;
         border-right: 1px solid #1e293b;
     }
+    [data-testid="stSidebar"] * {
+        color: #f8fafc !important;
+    }
     
     /* Metric Cards - High Contrast Text */
     [data-testid="stMetric"] {
-        background: rgba(15, 23, 42, 0.85);
+        background: rgba(15, 23, 42, 0.9);
         border: 1px solid #38bdf8;
         padding: 15px;
         border-radius: 10px;
@@ -38,26 +41,33 @@ st.markdown("""
         font-weight: 700;
     }
     [data-testid="stMetricLabel"] {
-        color: #94a3b8 !important;
+        color: #cbd5e1 !important;
     }
     
-    /* Success Alert Box Visibility */
+    /* Alert & Success Boxes */
     .stAlert {
         background-color: #064e3b !important;
         border: 1px solid #10b981 !important;
     }
-    .stAlert p {
+    .stAlert p, .stAlert span {
         color: #6ee7b7 !important;
         font-weight: bold !important;
     }
     
-    /* Headers & Text */
-    h1, h2, h3 {
+    /* Headers & Markdown Text */
+    h1, h2, h3, h4, h5, h6 {
         color: #38bdf8 !important;
         font-family: 'Helvetica Neue', sans-serif;
     }
-    p, span, label {
+    p, span, label, div, markdown, .stMarkdown {
         color: #f1f5f9 !important;
+    }
+    
+    /* Inputs, Sliders, and Text Areas */
+    .stTextInput input, .stTextArea textarea {
+        background-color: #0f172a !important;
+        color: #ffffff !important;
+        border: 1px solid #334155 !important;
     }
     
     /* Tabs */
@@ -67,7 +77,7 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] {
         background-color: #0f172a;
         border-radius: 6px;
-        color: #cbd5e1;
+        color: #cbd5e1 !important;
         padding: 10px 20px;
         border: 1px solid #334155;
     }
