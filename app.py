@@ -22,7 +22,7 @@ if meteomatics_user and meteomatics_pass:
     try:
         # Default coordinates (e.g., ground station link)
         weather_data = get_atmospheric_conditions(meteomatics_user, meteomatics_pass)
-        if weather_data:
+        if weather_data and isinstance(weather_data, dict):
             st.sidebar.success("Atmospheric Link Connected!")
             st.sidebar.metric("Ground Temperature", f"{weather_data.get('t_2m:C', 20.0):.1f} °C")
             st.sidebar.metric("Relative Humidity", f"{weather_data.get('relative_humidity_2m:p', 50.0):.1f} %")
@@ -33,7 +33,9 @@ if meteomatics_user and meteomatics_pass:
         st.sidebar.error(f"Connection failed: {e}")
 else:
     st.sidebar.warning("Enter Meteomatics credentials to load live noise scaling.")
-    # Default fallback metrics for demo mode
+
+# Fallback safety check so weather_data is always a dictionary and never causes an AttributeError
+if not isinstance(weather_data, dict):
     weather_data = {'t_2m:C': 25.0, 'relative_humidity_2m:p': 45.0, 'wind_speed_10m:ms': 2.1}
 
 # --- Main Mission Control Header ---
