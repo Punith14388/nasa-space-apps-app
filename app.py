@@ -10,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Custom Deep-Space CSS & Dark Overlay for Video Background ---
+# --- Custom Deep-Space CSS & Cinematic Rocket Launch Video Background ---
 st.markdown("""
 <style>
     /* Main Background Styling */
@@ -37,7 +37,7 @@ st.markdown("""
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, rgba(5, 11, 20, 0.90) 0%, rgba(10, 25, 47, 0.90) 50%, rgba(2, 6, 13, 0.92) 100%);
+        background: linear-gradient(135deg, rgba(5, 11, 20, 0.88) 0%, rgba(10, 25, 47, 0.88) 50%, rgba(2, 6, 13, 0.90) 100%);
         z-index: -98;
     }
     
@@ -123,10 +123,10 @@ st.markdown("""
     }
 </style>
 
-<!-- Background Rocket Launch & Spaceflight Video Element -->
+<!-- Cinematic Rocket Launch Video Background Element -->
 <div id="bg-video-container">
     <video autoplay muted loop id="rocket-video">
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-space-flight-through-a-starfield-42995-large.mp4" type="video/mp4">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-rocket-taking-off-in-the-sky-42994-large.mp4" type="video/mp4">
     </video>
 </div>
 """, unsafe_allow_html=True)
