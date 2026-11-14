@@ -10,16 +10,16 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Custom Deep-Space CSS & Rocket Launch Video Background ---
+# --- Custom Deep-Space CSS & Dark Overlay for Video Background ---
 st.markdown("""
 <style>
-    /* Full Page Background Styling */
+    /* Main Background Styling */
     .stApp {
-        background: transparent;
+        background: #050b14 !important;
         color: #ffffff !important;
     }
     
-    /* Background Video Container */
+    /* Background Video Container & Dark Contrast Overlay */
     #bg-video-container {
         position: fixed;
         right: 0;
@@ -28,6 +28,17 @@ st.markdown("""
         min-height: 100%;
         z-index: -99;
         overflow: hidden;
+    }
+    
+    #bg-video-container::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(5, 11, 20, 0.90) 0%, rgba(10, 25, 47, 0.90) 50%, rgba(2, 6, 13, 0.92) 100%);
+        z-index: -98;
     }
     
     #rocket-video {
@@ -40,12 +51,12 @@ st.markdown("""
         height: auto;
         transform: translateX(-50%) translateY(-50%);
         object-fit: cover;
-        opacity: 0.25;
+        opacity: 0.35;
     }
     
     /* Sidebar Styling */
     [data-testid="stSidebar"] {
-        background-color: rgba(3, 7, 18, 0.90);
+        background-color: rgba(3, 7, 18, 0.95) !important;
         border-right: 1px solid #1e293b;
     }
     [data-testid="stSidebar"] * {
@@ -54,15 +65,15 @@ st.markdown("""
     
     /* Metric Cards - High Contrast Text */
     [data-testid="stMetric"] {
-        background: rgba(15, 23, 42, 0.85);
-        border: 1px solid #38bdf8;
+        background: rgba(15, 23, 42, 0.90) !important;
+        border: 1px solid #38bdf8 !important;
         padding: 15px;
         border-radius: 10px;
         box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
     }
     [data-testid="stMetricValue"] {
         color: #38bdf8 !important;
-        font-weight: 700;
+        font-weight: 700 !important;
     }
     [data-testid="stMetricLabel"] {
         color: #cbd5e1 !important;
@@ -99,7 +110,7 @@ st.markdown("""
         gap: 8px;
     }
     .stTabs [data-baseweb="tab"] {
-        background-color: #0f172a;
+        background-color: #0f172a !important;
         border-radius: 6px;
         color: #cbd5e1 !important;
         padding: 10px 20px;
