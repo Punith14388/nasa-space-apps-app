@@ -10,18 +10,50 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Custom Deep-Space CSS & Cinematic Background ---
+# --- Custom Deep-Space CSS & Background Video Iframe Styling ---
 st.markdown("""
 <style>
-    /* Cinematic Space Background & Contrast Overlay */
+    /* Main Background Styling */
     .stApp {
-        background: linear-gradient(135deg, rgba(5, 11, 20, 0.88) 0%, rgba(10, 25, 47, 0.88) 50%, rgba(2, 6, 13, 0.92) 100%), 
-                    url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop') !important;
-        background-size: cover !important;
-        background-position: center !important;
-        background-repeat: no-repeat !important;
-        background-attachment: fixed !important;
+        background: transparent !important;
         color: #ffffff !important;
+    }
+    
+    /* Background Video Container */
+    #bg-iframe-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -99;
+        pointer-events: none;
+        overflow: hidden;
+    }
+    
+    #bg-iframe-container iframe {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100vw;
+        height: 56.25vw; /* 16:9 aspect ratio */
+        min-height: 100vh;
+        min-width: 177.77vh; /* 16:9 aspect ratio */
+        transform: translate(-50%, -50%);
+        border: none;
+        opacity: 0.35;
+    }
+    
+    /* Dark Contrast Overlay */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, rgba(5, 11, 20, 0.88) 0%, rgba(10, 25, 47, 0.88) 50%, rgba(2, 6, 13, 0.92) 100%);
+        z-index: -98;
+        pointer-events: none;
     }
     
     /* Sidebar Styling */
@@ -92,6 +124,12 @@ st.markdown("""
         font-weight: bold;
     }
 </style>
+
+<!-- Background Video & Overlay Elements -->
+<div class="overlay"></div>
+<div id="bg-iframe-container">
+    <iframe src="https://www.youtube-nocookie.com/embed/R2B1b_vWwLc?autoplay=1&mute=1&controls=0&loop=1&playlist=R2B1b_vWwLc&showinfo=0&autohide=1" allow="autoplay"></iframe>
+</div>
 """, unsafe_allow_html=True)
 
 # --- Sidebar: Interplanetary Telemetry (Meteomatics Weather API) ---
