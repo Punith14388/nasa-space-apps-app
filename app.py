@@ -10,13 +10,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# --- Custom Deep-Space CSS Styling ---
+# --- Custom Deep-Space CSS Styling for High Visibility ---
 st.markdown("""
 <style>
     /* Main Background & Theme */
     .stApp {
         background: linear-gradient(135deg, #050b14 0%, #0a192f 50%, #02060d 100%);
-        color: #e2e8f0;
+        color: #f8fafc;
     }
     
     /* Sidebar Styling */
@@ -25,19 +25,29 @@ st.markdown("""
         border-right: 1px solid #1e293b;
     }
     
-    /* Metric Cards */
+    /* Metric Cards - High Contrast Text */
     [data-testid="stMetric"] {
-        background: rgba(15, 23, 42, 0.7);
-        border: 1px solid #334155;
+        background: rgba(15, 23, 42, 0.85);
+        border: 1px solid #38bdf8;
         padding: 15px;
         border-radius: 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 12px rgba(56, 189, 248, 0.2);
+    }
+    [data-testid="stMetricValue"] {
+        color: #38bdf8 !important;
+        font-weight: 700;
+    }
+    [data-testid="stMetricLabel"] {
+        color: #94a3b8 !important;
     }
     
     /* Headers & Text */
     h1, h2, h3 {
         color: #38bdf8 !important;
         font-family: 'Helvetica Neue', sans-serif;
+    }
+    p, span, label {
+        color: #f1f5f9 !important;
     }
     
     /* Tabs */
