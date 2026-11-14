@@ -5,10 +5,59 @@ from weather_api import get_atmospheric_conditions
 
 # --- Page Configuration ---
 st.set_page_config(
-    page_title="Deep-Space QKD & Enigma Suite",
+    page_title="AETHER-QKD | Deep-Space Command",
     layout="wide",
     initial_sidebar_state="expanded"
 )
+
+# --- Custom Deep-Space CSS Styling ---
+st.markdown("""
+<style>
+    /* Main Background & Theme */
+    .stApp {
+        background: linear-gradient(135deg, #050b14 0%, #0a192f 50%, #02060d 100%);
+        color: #e2e8f0;
+    }
+    
+    /* Sidebar Styling */
+    [data-testid="stSidebar"] {
+        background-color: #030712;
+        border-right: 1px solid #1e293b;
+    }
+    
+    /* Metric Cards */
+    [data-testid="stMetric"] {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid #334155;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* Headers & Text */
+    h1, h2, h3 {
+        color: #38bdf8 !important;
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    
+    /* Tabs */
+    .stTabs [data-baseweb="tab-list"] {
+        gap: 8px;
+    }
+    .stTabs [data-baseweb="tab"] {
+        background-color: #0f172a;
+        border-radius: 6px;
+        color: #cbd5e1;
+        padding: 10px 20px;
+        border: 1px solid #334155;
+    }
+    .stTabs [aria-selected="true"] {
+        background-color: #0284c7 !important;
+        color: white !important;
+        font-weight: bold;
+    }
+</style>
+""", unsafe_allow_html=True)
 
 # --- Sidebar: Interplanetary Telemetry (Meteomatics Weather API) ---
 st.sidebar.header("🌍 Interplanetary Telemetry")
@@ -34,7 +83,7 @@ if meteomatics_user and meteomatics_pass:
 else:
     st.sidebar.warning("Enter Meteomatics credentials to load live noise scaling.")
 
-# Fallback safety check so weather_data is always a dictionary and never causes an AttributeError
+# Fallback safety check so weather_data is always a dictionary
 if not isinstance(weather_data, dict):
     weather_data = {'t_2m:C': 25.0, 'relative_humidity_2m:p': 45.0, 'wind_speed_10m:ms': 2.1}
 
