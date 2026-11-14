@@ -41,6 +41,16 @@ st.markdown("""
         color: #94a3b8 !important;
     }
     
+    /* Success Alert Box Visibility */
+    .stAlert {
+        background-color: #064e3b !important;
+        border: 1px solid #10b981 !important;
+    }
+    .stAlert p {
+        color: #6ee7b7 !important;
+        font-weight: bold !important;
+    }
+    
     /* Headers & Text */
     h1, h2, h3 {
         color: #38bdf8 !important;
